@@ -1,0 +1,16 @@
+import {useEffect, useState} from "react"
+
+
+function useCurrencyInfo(currency){
+    const [data, setData] = useState({})
+    useEffect(() => {
+        fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyDZVq8TiFqOhZIODZyM7yVBvcuyK-f2Wd0`)
+        .then((res) => res.json())
+        .then((res) => setData(res[currency]))
+        console.log(data);
+    }, [currency])
+    console.log(data);
+    return data
+}
+
+export default useCurrencyInfo;
